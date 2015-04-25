@@ -1,0 +1,39 @@
+Packaging and Deployment
+
+The aim of this lab is to give you practice working with Java programs that consist of multiple classes. Your should work at the Unix command line to ensure you are comfortable with running Java applications in the Unix environment.
+
+Questions
+Copy the following example code into two separate source files on your Unix system.
+AnotherClass.java
+package course.demo;
+
+public class AnotherClass {
+  public static void display() {
+    System.out.println ("AnotherClass Display method");
+  }
+}
+Hello.java
+package course;
+import course.demo.AnotherClass;
+
+public class Hello {
+  public static void main(String[] args) {
+    System.out.println("Hello world");
+    AnotherClass.display();
+  }
+}
+From the Unix command line compile the code using javac and then run the program using the java command. You will need to compile the class files to the correct directory hierarchy and then specify the CLASSPATH on the java command line.
+
+Create a lib directory in your home directory and move the class files into this directory retaining the same directory hierachy. Set up and export a CLASSPATH variable so that you can run the application from the lib directory (do not cd into the lib directory to run the application).
+Package the classes from the previous question into a JAR file with the same base filename as the main class. Modify your java command line or CLASSPATH to run the application using the JAR file. Prove this is the case by renaming the lib directory to classes.
+Optional Questions
+Create a MANIFEST file (call it manifest.txt if you want) and add a Main-Class: entry for your application. Rebuild your JAR file to include this manifest file and the class files (now in the classes directory). Use the -jar option to the java command to run you JAR file application.
+
+Inside Java Classes
+
+The aim of this lab is to give you practice using standard tools and techniques to examine both the content of a compiled Java class and the mechanisms surrounding the loading of Java classes.
+
+Examine the usage of the command javap, which allows us to disassemble and display the contents of a compiled Java class. Use this tool to verify the contents of some of the classes you have written in earlier exercises, including the bytecodes of the methods.
+The JVM startup command java allows many options that allow us to monitor and tune its activity. In particular we can have the JVM indicate when it has loaded a class, by using the command
+java -verbose:class ClassName
+Using your answer to question one in this lab as a starting point, use the above technique to experiment with the difference between Implicit (default) class loading and explicit class loading.
