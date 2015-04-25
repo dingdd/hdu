@@ -1,0 +1,10 @@
+#!/bin/bash
+
+(sleep 7200; kill $$)&
+
+while true
+do
+	echo -n ">"
+	read line
+	. ./process $line
+done	
