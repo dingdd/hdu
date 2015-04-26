@@ -1,0 +1,134 @@
+Classfile /home/ding/hdu/java/Fixed.class
+  Last modified Apr 25, 2015; size 748 bytes
+  MD5 checksum 93cfe9269916cb20bec949a280948403
+  Compiled from "Fixed.java"
+public class Fixed
+  minor version: 0
+  major version: 52
+  flags: ACC_PUBLIC, ACC_SUPER
+Constant pool:
+   #1 = Methodref          #13.#26        // java/lang/Object."<init>":()V
+   #2 = Methodref          #27.#28        // java/lang/Runtime.getRuntime:()Ljava/lang/Runtime;
+   #3 = Methodref          #27.#29        // java/lang/Runtime.maxMemory:()J
+   #4 = Double             0.5d
+   #6 = Fieldref           #10.#30        // Fixed.dataSize:I
+   #7 = Fieldref           #31.#32        // java/lang/System.out:Ljava/io/PrintStream;
+   #8 = String             #33            // Please release the memory, Java
+   #9 = Methodref          #34.#35        // java/io/PrintStream.println:(Ljava/lang/String;)V
+  #10 = Class              #36            // Fixed
+  #11 = Methodref          #10.#26        // Fixed."<init>":()V
+  #12 = Methodref          #10.#37        // Fixed.f:()V
+  #13 = Class              #38            // java/lang/Object
+  #14 = Utf8               dataSize
+  #15 = Utf8               I
+  #16 = Utf8               <init>
+  #17 = Utf8               ()V
+  #18 = Utf8               Code
+  #19 = Utf8               LineNumberTable
+  #20 = Utf8               f
+  #21 = Utf8               StackMapTable
+  #22 = Utf8               main
+  #23 = Utf8               ([Ljava/lang/String;)V
+  #24 = Utf8               SourceFile
+  #25 = Utf8               Fixed.java
+  #26 = NameAndType        #16:#17        // "<init>":()V
+  #27 = Class              #39            // java/lang/Runtime
+  #28 = NameAndType        #40:#41        // getRuntime:()Ljava/lang/Runtime;
+  #29 = NameAndType        #42:#43        // maxMemory:()J
+  #30 = NameAndType        #14:#15        // dataSize:I
+  #31 = Class              #44            // java/lang/System
+  #32 = NameAndType        #45:#46        // out:Ljava/io/PrintStream;
+  #33 = Utf8               Please release the memory, Java
+  #34 = Class              #47            // java/io/PrintStream
+  #35 = NameAndType        #48:#49        // println:(Ljava/lang/String;)V
+  #36 = Utf8               Fixed
+  #37 = NameAndType        #20:#17        // f:()V
+  #38 = Utf8               java/lang/Object
+  #39 = Utf8               java/lang/Runtime
+  #40 = Utf8               getRuntime
+  #41 = Utf8               ()Ljava/lang/Runtime;
+  #42 = Utf8               maxMemory
+  #43 = Utf8               ()J
+  #44 = Utf8               java/lang/System
+  #45 = Utf8               out
+  #46 = Utf8               Ljava/io/PrintStream;
+  #47 = Utf8               java/io/PrintStream
+  #48 = Utf8               println
+  #49 = Utf8               (Ljava/lang/String;)V
+{
+  public Fixed();
+    descriptor: ()V
+    flags: ACC_PUBLIC
+    Code:
+      stack=5, locals=1, args_size=1
+         0: aload_0
+         1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+         4: aload_0
+         5: invokestatic  #2                  // Method java/lang/Runtime.getRuntime:()Ljava/lang/Runtime;
+         8: invokevirtual #3                  // Method java/lang/Runtime.maxMemory:()J
+        11: l2d
+        12: ldc2_w        #4                  // double 0.5d
+        15: dmul
+        16: d2i
+        17: putfield      #6                  // Field dataSize:I
+        20: return
+      LineNumberTable:
+        line 1: 0
+        line 2: 4
+
+  public void f();
+    descriptor: ()V
+    flags: ACC_PUBLIC
+    Code:
+      stack=2, locals=2, args_size=1
+         0: aload_0
+         1: getfield      #6                  // Field dataSize:I
+         4: newarray       byte
+         6: astore_1
+         7: iconst_0
+         8: istore_1
+         9: iload_1
+        10: bipush        10
+        12: if_icmpge     29
+        15: getstatic     #7                  // Field java/lang/System.out:Ljava/io/PrintStream;
+        18: ldc           #8                  // String Please release the memory, Java
+        20: invokevirtual #9                  // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+        23: iinc          1, 1
+        26: goto          9
+        29: aload_0
+        30: getfield      #6                  // Field dataSize:I
+        33: newarray       byte
+        35: astore_1
+        36: return
+      LineNumberTable:
+        line 6: 0
+        line 9: 7
+        line 10: 15
+        line 9: 23
+        line 12: 29
+        line 13: 36
+      StackMapTable: number_of_entries = 2
+        frame_type = 252 /* append */
+          offset_delta = 9
+          locals = [ int ]
+        frame_type = 250 /* chop */
+          offset_delta = 19
+
+  public static void main(java.lang.String[]);
+    descriptor: ([Ljava/lang/String;)V
+    flags: ACC_PUBLIC, ACC_STATIC
+    Code:
+      stack=2, locals=2, args_size=1
+         0: new           #10                 // class Fixed
+         3: dup
+         4: invokespecial #11                 // Method "<init>":()V
+         7: astore_1
+         8: aload_1
+         9: invokevirtual #12                 // Method f:()V
+        12: return
+      LineNumberTable:
+        line 16: 0
+        line 17: 8
+        line 18: 12
+}
+SourceFile: "Fixed.java"

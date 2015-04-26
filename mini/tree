@@ -1,0 +1,21 @@
+#!/bin/bash
+
+function travel(){
+	[ ! -e "$1" ] && return
+	printf ' %.0s' `seq 0 $2`
+	echo "+" `basename -s '' $1`
+	[ ! -d "$1" ] && return
+	for f in `ls $1`
+	do
+		travel "$1/$f" `expr $2 + 1`
+	done
+}
+
+[ $# -eq 0 ] && travel . 0 && exit
+
+while [ $# -gt 0 ]
+do
+	travel $1
+	shift
+	echo 
+done

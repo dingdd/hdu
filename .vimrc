@@ -23,9 +23,8 @@ set cursorline
 set cc=80
 
 
-call pathogen#infect()
+"call pathogen#infect()
 
-colorscheme vividchalk
 colorscheme evening
 
 imap <Tab> <C-n>

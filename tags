@@ -1,0 +1,27 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+ARGVSZ	mssh.cc	12;"	d	file:
+LINESZ	mssh.cc	10;"	d	file:
+PPLINE	mssh.cc	11;"	d	file:
+PPSIZE	mssh.cc	13;"	d	file:
+argc	mssh.cc	/^static int argc=0;$/;"	v	file:
+argv	mssh.cc	/^static char *argv[ARGVSZ];$/;"	v	file:
+cmd	mssh.cc	/^static char cmd[LINESZ+1];$/;"	v	file:
+doCD	mssh.cc	/^static void doCD(int argc, char* argv[]){$/;"	f	file:
+doIfBidIn	mssh.cc	/^static int doIfBidIn(char* argv[]){$/;"	f	file:
+dowithstdio	mssh.cc	/^static int dowithstdio(char *argv[]){$/;"	f	file:
+fredict	mssh.cc	/^static int fredict(){$/;"	f	file:
+main	mssh.cc	/^int main(){$/;"	f
+pipeExec	mssh.cc	/^static int pipeExec(char *line){$/;"	f	file:
+pipefd	mssh.cc	/^static int pipefd[2];$/;"	v	file:
+pipeignore	mssh.cc	/^static int pipeignore(char *s){$/;"	f	file:
+pipes	mssh.cc	/^static char *pipes[PPSIZE];$/;"	v	file:
+ppln	mssh.cc	/^static char ppln[PPLINE+1];$/;"	v	file:
+removeEmp	mssh.cc	/^static int removeEmp(int cnt, char *argv[]){$/;"	f	file:
+spaceignore	mssh.cc	/^static int spaceignore(const char *s, char *t){$/;"	f	file:
+split	mssh.cc	/^static int split(char *s, char *argv[]){$/;"	f	file:
+stdio	mssh.cc	/^static const char *stdio[3]={NULL, NULL, NULL };$/;"	v	file:

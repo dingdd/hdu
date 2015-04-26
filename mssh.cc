@@ -32,7 +32,10 @@ static int pipeignore(char *s){
 	return cnt;
 }
 
-static int spaceignore(const char *s, char *t){
+static int spaceignore(char *s, char *t){
+	// need extra space and set back later
+	char *p=--s;
+	*p=' ';
 	while(*s&&*s!='\n'){
 		if(isblank(*s)){
 			++s;
@@ -43,6 +46,7 @@ static int spaceignore(const char *s, char *t){
 		*t++=*s++;
 	}
 	*t=0;
+	*p=0;
 	return 0;
 }
 
@@ -149,6 +153,8 @@ static void doCD(int argc, char* argv[]){
 }
 
 static int doIfBidIn(char* argv[]){
+	if(!argv[0])
+		return 1;
 	if(!strcmp(argv[0], "exit"))
 		exit(0);
 	else if(!strcmp(argv[0], "cd"))
@@ -173,10 +179,12 @@ static int pipeExec(char *line){
 	if(pid==0){
 		close(pipefd[0]);
 		dup2(pipefd[1], 1);
+		close(pipefd[1]);
 		return 0;
 	}
 	close(pipefd[1]);
 	dup2(pipefd[0], 0);
+	close(pipefd[0]);
 
 	spaceignore(line, cmd);
 	argc=split(cmd, argv);
@@ -193,12 +201,12 @@ static int pipeExec(char *line){
 }
 
 int main(){
-	char line[LINESZ+1];
+	char linecont[LINESZ+1];
+	char *line=linecont+1;
 	int pipenum=0;
 	while(true){
 		fputs("> ", stdout);
-		line[0]=' ';
-		fgets(line+1, LINESZ, stdin);
+		fgets(line, LINESZ, stdin);
 		if(feof(stdin))
 			break;
 		pipenum=pipeignore(line);
@@ -208,7 +216,7 @@ int main(){
 		fredict();
 		removeEmp(argc, argv);
 		if(!pipenum&&doIfBidIn(argv))
-				continue;
+			continue;
 
 		int pid=fork();
 		if(pid==-1){
@@ -220,12 +228,10 @@ int main(){
 			wait(&status);
 			continue;
 		}
-		for(int i=pipenum;i>0;--i){
+		for(int i=pipenum;i>0;--i)
 			pipeExec(pipes[i]);
-		}
 		if(pipenum)
-			close(pipefd[0]), dup2(pipefd[1],1);
-		fprintf(stdout, "%s\n", argv[0]);
+			close(pipefd[0]), dup2(pipefd[1],1), close(pipefd[1]);
 		fflush(stdout);
 		execvp(argv[0], argv);
 		break;
