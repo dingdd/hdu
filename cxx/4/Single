@@ -1,0 +1,14 @@
+#ifndef SINGLE_H
+#define SINGLE_H
+
+class Data{
+	int i;
+	static Data *sig;
+	Data(int ii=0):i(ii){}
+public:
+	int get() const;
+	void set(int);
+	Data* instance();
+};
+
+#endif

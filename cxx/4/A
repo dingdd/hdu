@@ -1,0 +1,13 @@
+#ifndef A_H
+#define A_H
+class A{
+	static int val;
+	int x;
+	const int max;
+public:
+	A(int _x=0, int _m=0);
+	void display() const;
+	int getX();
+	void setX(const int x);
+};
+#endif
