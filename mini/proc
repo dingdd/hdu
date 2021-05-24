@@ -1,9 +1,0 @@
-#!/bin/bash 
-
-[ $# -lt 1 ] && echo "$0: need at least a username" && exit
-# why wrong with only \$1
-res=`ps -ef |awk " \\\$1 ~ /^$1\$/ {print \\\$2 \"\t\" \\\$3 \"\t\" \\\$8}"`
-
-[ -z "$res" ] && echo "$0: not a valid name or no such a user" && exit
-
-echo "$res"
